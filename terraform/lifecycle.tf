@@ -19,8 +19,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "listing_media_archive" {
     id     = "archive-sold-listing-photos"
     status = "Enabled"
 
+    filter {}
+
     transition {
-      days          = 30
+      days          = 120
       storage_class = "GLACIER"
     }
   }
